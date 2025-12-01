@@ -1,0 +1,233 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    line-height: 1.6;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+
+/* Navbar */
+nav {
+    border-bottom: 2px solid #f9c09c;
+    background-color: #040404;
+    padding: 1rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+nav .brand {
+    font-weight: bold;
+    font-size: 1.8rem;
+    color: #f8c98d;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 1.5rem;
+}
+
+nav ul li a {
+    color: #fabd91;
+    font-size: 1rem;
+    transition: color 0.3s;
+}
+
+nav ul li a:hover {
+    color: #ffd700;
+}
+
+/* Hero Section */
+.hero {
+    height: 80vh;
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    text-align: center;
+    padding: 0 1rem;
+}
+.hero .main {
+    margin-bottom: 15rem;
+}
+
+.hero h1 {
+    color: #f56105;
+    font-size: 3rem;
+    margin-bottom: 1rem;
+}
+
+.hero p {
+    font-size: 1.2rem;
+    margin-bottom: 1.5rem;
+    color: black;
+}
+
+.hero .btn {
+    background-color: #060606;
+    color: #fff;
+    padding: 0.8rem 2rem;
+    font-size: 1rem;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background 0.3s;
+}
+
+.hero .btn:hover {
+    background-color: #b02a37;
+}
+
+/* Classes Section */
+#classes {
+    background-color: #f9c09c;
+    padding: 4rem 1rem;
+    text-align: center;
+}
+
+#classes h2 {
+    font-size: 2.2rem;
+    margin-bottom: 2rem;
+}
+
+.class-cards {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 2rem;
+}
+
+.class-card {
+    background-color: #0d0c0c;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    overflow: hidden;
+    width: 300px;
+    transition: transform 0.3s;
+}
+
+.class-card:hover {
+    transform: translateY(-10px);
+}
+
+.class-card img {
+    width: 100%;
+    height: 500px; /* increased from 200px */
+    object-fit: cover;
+}
+
+.class-card h4 {
+    color: #f9c09c;
+    margin: 1rem 0 0.5rem 0;
+}
+
+.class-card p {
+    margin-bottom: 1rem;
+    color: #f9c09c;
+}
+
+/* Registration Form */
+#register {
+    background-color: #f9c09c;
+    padding: 4rem 1rem;
+    text-align: center;
+}
+
+#register h2 {
+    font-size: 2rem;
+    margin-bottom: 2rem;
+}
+
+form {
+    background-color: #ed6e1a;
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    max-width: 500px;
+    margin: auto;
+    text-align: left; /* form text aligned left */
+}
+
+form label {
+    display: block;
+    margin-top: 1rem;
+    font-weight: bold;
+    text-align: left; /* label aligned left */
+}
+
+form input, form select {
+    width: 100%;
+    padding: 0.6rem;
+    margin-top: 0.5rem;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    font-size: 1rem;
+}
+
+form button {
+    margin-top: 1.5rem;
+    width: 100%;
+    padding: 0.8rem;
+    background-color: #111111;
+    color: #fff;
+    border: none;
+    font-size: 1rem;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background 0.3s;
+}
+
+form button:hover {
+    background-color: #ed6e1a;
+}
+
+/* Footer */
+footer {
+    background-color: #ed6e1a;
+    color: #0a0a0a;
+    text-align: left; /* footer content aligned left */
+    padding: 2rem 4rem;
+}
+
+footer h1 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+footer p {
+    margin: 0.3rem 0;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .class-cards {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    nav ul {
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    footer {
+        padding: 2rem 1rem;
+        text-align: center; /* center footer on mobile */
+    }
+
+    form {
+        text-align: left;
+    }
+}
