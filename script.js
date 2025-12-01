@@ -1,39 +1,36 @@
 const form = document.querySelector('form');
 
-  form.addEventListener('submit', function(e) {
-      e.preventDefault(); // Prevent default form submission
+form.addEventListener('submit', function(e) {
+    e.preventDefault();
 
-      // Get form values
-      const name = form.querySelector('input[type="text"]').value.trim();
-      const email = form.querySelector('input[type="email"]').value.trim();
-      const phone = form.querySelector('input[type="number"]').value.trim();
-      const danceStyle = form.querySelector('select:nth-of-type(1)').value;
-      const batch = form.querySelector('select:nth-of-type(2)').value;
+    // Get form values
+    const name = form.querySelector('input[type="text"]').value.trim();
+    const email = form.querySelector('input[type="email"]').value.trim();
+    const phone = form.querySelector('input[type="number"]').value.trim();
+    const danceStyle = form.querySelector('select:nth-of-type(1)').value;
+    const batch = form.querySelector('select:nth-of-type(2)').value;
 
-      // Simple validation
-      if (!name || !email || !phone || !danceStyle || !batch) {
-          alert("Please fill in all fields.");
-          return;
-      }
+    // Validation
+    if (!name || !email || !phone || !danceStyle || !batch) {
+        alert("Please fill in all fields.");
+        return;
+    }
 
-      // Optional: further validation (email format, phone number length)
-      const emailPattern = /^[^ ]+@[^ ]+\.[a-z]{2,3}$/;
-      if (!email.match(emailPattern)) {
-          alert("Please enter a valid email address.");
-          return;
-      }
+    // EmailJS parameters
+    const templateParams = {
+        name: name,
+        email: email,
+        phone: phone,
+        dance_style: danceStyle,
+        batch: batch
+    };
 
-      if (phone.length < 10) {
-          alert("Please enter a valid phone number.");
-          return;
-      }
-
-      // If all is good
-      alert(`Thank you ${name}!\nYou have successfully registered for the ${danceStyle} batch (${batch}).`);
-
-      // Log details to console (optional)
-      console.log({ name, email, phone, danceStyle, batch });
-
-      // Clear form
-      form.reset();
-  });
+    emailjs.send("service_sparkle", "template_re0st2l", templateParams)
+        .then(function(response) {
+            alert("🎉 Thank you for registration! A confirmation email has been sent to your inbox.");
+            form.reset();
+        }, function(error) {
+            alert("Failed to send email. Please try again.");
+            console.log("Error:", error);
+        });
+});
